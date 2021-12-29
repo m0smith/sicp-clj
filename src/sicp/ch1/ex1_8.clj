@@ -2,7 +2,7 @@
   ""
    (:refer-clojure :exclude [cond define])
    (:require [sicp.scheme.core :refer :all]
-             [sicp.ch1.examples :refer [square]]))
+             [sicp.ch1.examples :refer [square abs average]]))
 
 (define (percent-diff a b)
   (define x1 (min a b))

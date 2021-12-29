@@ -60,7 +60,15 @@
               (f forms acc)) 
             (first-f first-forms) (next parts))))
 
-(defmacro define [n & body]
+(defmacro define 
+  "Can either be 
+    (define x <expr>) ;; Bind x to <expr>
+    (define (foo a b) <body) ;; Create a function `foo` with parameters `a` and `b`
+
+  The `define` form in Scheme maps to several Clojure forms
+      Global environment: `def` and `defn`
+      Local scope: `let` and `letfn`"
+  [n & body]
   (if (list? n)
     `(defn ~(first n) ~(into [] (next n))
        ~(define-body body))
