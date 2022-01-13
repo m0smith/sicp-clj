@@ -82,3 +82,6 @@
   (if (< (count body) 2)
     (first body)
     `(do ~@body)))
+
+(def remainder rem)
+
