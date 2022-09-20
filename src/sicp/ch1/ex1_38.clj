@@ -17,12 +17,12 @@
   (iter (- k 1)
         (/ (n k) (d k))))
 
-;; Clojure has a function constantly that will do return a constant value when invoke
+;; Clojure has a function constantly that will return a constant value when invoked
 (define (nf x) 1)
 
 (define (df x)
   (let ((d (+ x 1)))
-    (if (= (mod d 3) 0)
+    (if (= (remainder d 3) 0)
       (* 2 (/ d 3))
       1)))
 

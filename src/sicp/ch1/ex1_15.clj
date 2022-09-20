@@ -1,6 +1,6 @@
 (ns sicp.ch1.ex1-15
   ""
-   (:refer-clojure :exclude [cond define])
+   (:refer-clojure :exclude [cond define let])
    (:require [sicp.scheme.core :refer :all]
              [sicp.ch1.examples :refer [good-enough? improve]]))
 
@@ -32,7 +32,7 @@
 ;; Clojure 
 
 (defn sine [angle]
-  (let [call-count (atom 0)]
+  (clojure.core/let [call-count (atom 0)]
     (letfn [(sine*
               [angle]
               (if (not (> (abs angle) 0.1))

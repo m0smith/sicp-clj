@@ -29,10 +29,10 @@
          (-> form second list?)))))
 (defn ppp 
   ([m x r]
-   (println m x r)
+   ;;(println m x r)
    r)
   ([m x x2 r]
-   (println m x x2 r)
+   ;;(println m x x2 r)
    r))
 
 (defn inner-define? 
@@ -47,11 +47,11 @@
 
 (defn inner-define-fn 
   [[_ x & body]]
-  (println "inner-define-fn" x)
+  ;;(println "inner-define-fn" x)
   (clojure.core/cond
     (= :recur x)
     (do 
-      (println "inner-define-fn" x (first body))
+      ;;(println "inner-define-fn" x (first body))
       (clojure.core/let [[n & args] (first body)
                          body (rest body)]
         `(~n ~(vec args) 
@@ -80,7 +80,7 @@
 (defn define-letfn 
   ([forms] `(letfn ~(into [] (map inner-define-fn forms))))
   ([forms inner-forms]
-   (println "define-letfn 2" forms inner-forms)
+   ;;(println "define-letfn 2" forms inner-forms)
    `(letfn ~(into [] (map inner-define-fn forms))
       (~@inner-forms))))
 
@@ -178,8 +178,10 @@
 (define (runtime)
   (. System nanoTime))
 
-(define (log x) 
-  (Math/log x))
+(define (log x) (Math/log x))
+(define (sin x) (Math/sin x))
+(define (cos x) (Math/cos x))
+
 
 
 
